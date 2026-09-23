@@ -1,0 +1,56 @@
+Full Checklist of Pages to Develop
+To make coding organized, group your files into a public folder and an admin folder under logical subheadings:
+
+Public-Facing Pages (No Login Required)
+These files sit in your root directory (public_html/ or htdocs/) and allow public visitors to view records
+
+index.php (Home Page): Contains the welcome banner carousel slider and basic system introductory text.
+
+about.php (About Us Page): Dynamically pulls the descriptive text about the college platform from the database page table.
+
+faculty.php (Faculty Directory): Loops through the faculty table to show layout cards of all teachers with names and designations.
+
+view-faculty-details.php (Single Profile Page): Uses a dynamic ID parameter (?fid=) to pull a specific teacher's full background details, joining date, and contact numbers.
+
+contact.php (Contact Us Page): Displays institutional contact data (address, support phone, and support email setup).
+
+
+
+
+
+
+
+
+Admin Panel Pages (Secure Control Panel)
+
+Create a separate folder named admin/ to host these pages. They all require session checks to ensure unauthorized users cannot view them:
+
+login.php (Admin Login): A simple login portal box accepting username and password credentials.
+
+forgot-password.php (Password Recovery): Allows admins to verify details and reset an administrative password.
+
+dashboard.php (Main Control Panel): The summary landing screen featuring color-coded indicator blocks showing active summary metric totals (e.g., total sub-admins, registered faculties, and linked colleges).
+
+add-subadmin.php (Create Sub-Admin Form): Input form capturing sub-admin name, email, credentials, and profile options.
+
+manage-subadmins.php (Sub-Admin List Table): An administrative search table tracking sub-admin registration dates, with quick links to delete or modify records.
+
+add-college.php (Register Institution Form): Fields to type in institutional profiles (e.g., "Radha Govind Institute of Technology") alongside assigned unique entity codes.
+
+manage-colleges.php (Colleges Registry Table): Grid listing all active branches/colleges with edit and deletion controls.
+
+add-faculty.php (New Faculty Form): Master input workspace containing specific drop-downs for choosing a college, selecting gender, and typing qualifications, alongside an automated profile image upload prompt.
+
+manage-faculty.php (Master Faculty Registry Table): Master administrative list layout tracking phone data, email entries, and record joining timelines across registered personnel.
+
+update-profile-pic.php (Avatar Maintenance Workspace): Isolated form allowing administrators to swap out or fix specific faculty profile images without overriding textual fields.
+
+
+
+Shared Global Core Elements (Reusable Includes)
+
+To prevent writing the same code repeatedly, save these fragments in an includes/ folder and insert them into your main sheets using PHP include() statements:
+
+config.php: Establishes the core MySQL system network bridge variable ($con).
+header.php / sidebar.php: Stores navigation links so changing a menu option updates the entire site instantly.
+footer.php: Holds general base copyright notes and common design script asset inclusions.
